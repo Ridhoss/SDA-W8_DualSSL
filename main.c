@@ -50,18 +50,20 @@ int main() {
         {
         case 1:
             printf("Masukkan Nama Kota: ");
-            scanf("%s", nama);
+            fgets(namakota, 100, stdin);
+            namakota[strcspn(namakota, "\n")] = 0;
             
-            InsFirstKota(&listkota, nama);
+            InsFirstKota(&listkota, namakota);
 
             printf("\n========================= \n");
 
             break;
         case 2:
             printf("Masukkan Nama Kota: ");
-            scanf("%s", nama);
+            fgets(namakota, 100, stdin);
+            namakota[strcspn(namakota, "\n")] = 0;
             
-            InsLastKota(&listkota, nama);
+            InsLastKota(&listkota, namakota);
 
             printf("\n========================= \n");
 
@@ -76,11 +78,14 @@ int main() {
                 break;
             }else {
                 printf("Masukan Setelah Kota : ");
-                scanf("%s", &namakotalama);
+                fgets(namakotalama, 100, stdin);
+                namakotalama[strcspn(namakotalama, "\n")] = 0;
+
                 PrecKota = SearchKota(listkota, namakotalama);
 
                 printf("Masukkan Nama Kota : ");
-                scanf("%s", namakota);
+                fgets(namakota, 100, stdin);
+                namakota[strcspn(namakota, "\n")] = 0;
 
                 InsertAfterKota(&listkota, namakota, PrecKota);
             }
@@ -110,7 +115,9 @@ int main() {
                 PrintInfoKota(listkota);
 
                 printf("Masukan Nama Kota : ");
-                scanf("%s", &namakota);
+                fgets(namakota, 100, stdin);
+                namakota[strcspn(namakota, "\n")] = 0;
+
                 DelPKota(&listkota, namakota);
                 
                 printf("========================= \n");
@@ -176,7 +183,8 @@ int main() {
                 {
                     case 1:
                         printf("Masukkan Nama: ");
-                        scanf("%s", nama);
+                        fgets(nama, 100, stdin);
+                        nama[strcspn(nama, "\n")] = 0;
 
                         InsFirst(pilihkota, nama);
 
@@ -185,7 +193,8 @@ int main() {
                         break;
                     case 2:
                         printf("Masukkan Nama: ");
-                        scanf("%s", nama);
+                        fgets(nama, 100, stdin);
+                        nama[strcspn(nama, "\n")] = 0;
 
                         InsLast(pilihkota, nama);
 
@@ -202,11 +211,14 @@ int main() {
                             break;
                         }else {
                             printf("Masukan Setelah : ");
-                            scanf("%s", &namalama);
+                            fgets(namalama, 100, stdin);
+                            namalama[strcspn(namalama, "\n")] = 0;
+
                             Prec = Search(*pilihkota, namalama);
 
                             printf("Masukkan Nama: ");
-                            scanf("%s", nama);
+                            fgets(nama, 100, stdin);
+                            nama[strcspn(nama, "\n")] = 0;
 
                             InsertAfter(nama, Prec);
                         }
@@ -237,6 +249,9 @@ int main() {
                         } else {
                             printf("Masukan Nama : ");
                             scanf("%s", &namalama);
+                            fgets(namalama, 100, stdin);
+                            namalama[strcspn(namalama, "\n")] = 0;
+
                             DelP(pilihkota, namalama);
                             
                             printf("========================= \n");
